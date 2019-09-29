@@ -1,0 +1,15 @@
+version:  '3.7'
+
+services:
+  app:
+    container_name: '${APP_NAME}'
+    image: '${APP_NAME}'
+    hostname: '${APP_NAME}'
+    build:
+      context: .
+      dockerfile: .docker/prod/Dockerfile
+
+networks:
+  default:
+    driver: bridge
+    name: ${APP_NAME}

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, AfterViewInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output, AfterViewInit, ElementRef} from '@angular/core';
 import {MenuNode} from './menu.model.provider';
 
 @Component({
@@ -27,11 +27,14 @@ export class MenuComponent implements AfterViewInit {
     @Output() private selectNode = new EventEmitter<MenuNode>();
     @Output() private toggleNode = new EventEmitter<MenuNode>();
 
-    constructor() {
+    private el: ElementRef;
+
+    constructor(el: ElementRef) {
+        this.el = el;
     }
 
     ngAfterViewInit(): void {
-        // const {$element} = this;
-        // $element.attr('nodes-count', this.nodes.length);
+        const {el, nodes: {length}} = this;
+        el.nativeElement.setAttribute('nodes-count', length);
     }
 }

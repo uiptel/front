@@ -4,7 +4,7 @@ import {MenuNode} from './menu.model.provider';
 @Component({
     selector: 'app-menu',
     template: `
-    <menu>
+    <ul>
         <li *ngFor="let node of nodes">
             <button type="button" (click)="selectNode.emit(node)">
                 {{ node.title }}
@@ -18,7 +18,7 @@ import {MenuNode} from './menu.model.provider';
                   (selectNode)="selectNode.emit($event)" (toggleNode)="toggleNode.emit($event)">
             </app-menu>
         </li>
-    </menu>
+    </ul>
     `,
     styleUrls: ['./menu.component.scss'],
 })

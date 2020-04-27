@@ -17,7 +17,7 @@ import {info, debug, dir} from '../logger';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    private nodes: MenuNode[];
+    public nodes: MenuNode[];
 
     constructor(private menuModel: MenuModel) { }
 

@@ -23,9 +23,9 @@ import {MenuNode} from './menu.model.provider';
     styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements AfterViewInit {
-    @Input() private readonly nodes: MenuNode[];
-    @Output() private selectNode = new EventEmitter<MenuNode>();
-    @Output() private toggleNode = new EventEmitter<MenuNode>();
+    @Input() public readonly nodes: MenuNode[];
+    @Output() public selectNode = new EventEmitter<MenuNode>();
+    @Output() public toggleNode = new EventEmitter<MenuNode>();
 
     private el: ElementRef;
 

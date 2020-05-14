@@ -7,10 +7,11 @@ import {info, debug, dir} from '../logger';
     selector: 'app-root',
     template: `
         <div class="app">
-            <h2>Hello, World!</h2>
-            <app-menu [nodes]="nodes" (selectNode)="select($event)"
-                (toggleNode)="toggle($event)">
-            </app-menu>
+            <div class="container">
+                <div class="card-50">50</div>
+                <div class="card-100">100</div>
+                <div class="card-200">200</div>
+            </div>
         </div>
     `,
     providers: [MenuModel],

@@ -1,6 +1,11 @@
 
 @import "../../assets/styles/vars";
 
+.title {
+  text-align: center;
+  margin: 2rem auto;
+}
+
 .container {
   display: flex;
   flex-flow: column nowrap;

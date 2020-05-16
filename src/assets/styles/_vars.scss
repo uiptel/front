@@ -1,5 +1,8 @@
 $cardHeight: 400px;
 $w1: 500px;
+$colorGreen: #6BA30F;
+$colorDark: #333333;
+$colorBlue: #0054B9;
 
 @mixin minWidth($w1) {
   @media screen and (min-width: $w1) {

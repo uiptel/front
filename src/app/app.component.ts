@@ -1,29 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import {info, debug} from '../logger';
-import { Scratch, scratches } from './models/scratch';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { debug } from 'src/logger';
+import config from 'src/config';
+
+const USER_LANG_KEY = 'lang';
 
 @Component({
-    selector: 'app-root',
-    template: `
-      <div class="app">
-        <div class="container">
-          <div *ngFor="let scratch of scratches" class="box">
-            <app-scratch-card [src]="imgPath(scratch.img)" [title]="scratch.title"></app-scratch-card>
-          </div>
-        </div>
-      </div>
+  selector: 'app-root',
+  template: `
+    <div class="app">
+      <app-menu></app-menu>
+    </div>
     `,
-    styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    public readonly scratches: Scratch[] = scratches;
+  public lang: string;  
 
-    constructor() { }
+  constructor(private translate: TranslateService) {
+    const { defaultLang } = config;
+    const lang = localStorage.getItem(USER_LANG_KEY) || window.navigator.language || defaultLang;
 
-    imgPath(img: string): string {
-        return `./assets/img/${img}`;
-    }
+    translate.setDefaultLang(defaultLang);
+    translate.use(lang);
+    debug(`set default language => ${defaultLang}; user language => ${lang}`);
+  }
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+    this.translate.onLangChange.subscribe(({ lang }: LangChangeEvent): void => {
+      this.lang = lang;
+      localStorage.setItem(USER_LANG_KEY, lang);
+      debug(`language change event => ${lang}`);
+    });
+  }
 }

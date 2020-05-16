@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
     template: `
     <div>
       <img [src]="src" alt="" />
-      <p class="text _medium _dark">{{ title }}</p>
+      <p class="text _medium _dark">{{ title | translate }}</p>
     </div>
     `,
     styleUrls: ['./scratch-card.component.scss']

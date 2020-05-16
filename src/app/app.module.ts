@@ -1,19 +1,17 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppComponent} from './app.component';
-import {MenuComponent} from './menu.component';
-import {MenuModel} from './menu.model.provider';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { ScratchCardComponent } from './scratch-card/scratch-card.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        MenuComponent
+        ScratchCardComponent,
     ],
     imports: [
         BrowserModule,
     ],
     providers: [
-        {provide: 'menuModel', useClass: MenuModel}
     ],
     bootstrap: [AppComponent]
 })

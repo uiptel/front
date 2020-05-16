@@ -1,0 +1,13 @@
+.text {
+    width: 100%;
+    font-size: 1.45rem;
+    font-family: 'Regular';
+    line-height: 1.3;
+    &._medium {
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+    &._dark {
+        color: #000;
+    }
+}

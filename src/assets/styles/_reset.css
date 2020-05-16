@@ -25,11 +25,13 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  font-weight: 400;
 }
 
 /* Set core root defaults */
 html {
   scroll-behavior: smooth;
+  font-size: calc(100vw / 138);
 }
 
 /* Set core body defaults */
@@ -54,6 +56,7 @@ a:not([class]) {
 img {
   max-width: 100%;
   display: block;
+  margin: 0 auto;
 }
 
 /* Natural flow and rhythm in articles by default */

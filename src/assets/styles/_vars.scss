@@ -1,0 +1,14 @@
+$cardHeight: 400px;
+$w1: 500px;
+
+@mixin minWidth($w1) {
+  @media screen and (min-width: $w1) {
+      @content;
+  }
+}
+
+@mixin width($w1, $w2) {
+  @media screen and (min-width: $w1) and (max-width: $w2) {
+      @content;
+  }
+}

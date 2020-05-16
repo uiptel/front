@@ -1,3 +1,4 @@
+@import "../assets/styles/vars";
 
 .app {
   display: block;
@@ -5,24 +6,25 @@
   margin: auto;
   background-color: #fafafa;
   
-  $cardHeight: 400px;
-    
   .container {
-    display: grid;  
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: $cardHeight;
-    grid-auto-rows: $cardHeight;
+    display: flex;
+    flex-flow: column nowrap;
+    @include minWidth($w1) { flex-flow: row nowrap; }
+
+    > .box {
+      flex: 1;
+    }
 
     .card-50 {
-      background-color: hsl(0, 50%, 90%);
+      background-color: hsl(0, 30%, 95%);
     }
 
     .card-100 {
-      background-color: hsl(120, 50%, 90%);
+      background-color: hsl(120, 30%, 95%);
     }
     
     .card-200 {
-      background-color: hsl(240, 50%, 90%);
+      background-color: hsl(240, 30%, 95%);
     }
   }
 }

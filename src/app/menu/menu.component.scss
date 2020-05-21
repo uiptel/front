@@ -3,16 +3,18 @@
 
 .title {
   text-align: center;
-  margin: 2rem auto;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
 }
 
 .container {
   display: flex;
   flex-flow: column nowrap;
-  @include minWidth($w1) { flex-flow: row nowrap; }
+  @media screen and (min-width: $w1) { flex-flow: row nowrap; }
 
   > .box {
     flex: 1;
+    margin-bottom: 1rem;
   }
 
   .card-50 {

@@ -1,6 +1,6 @@
 {
-  "name": "ng8test",
-  "version": "0.0.1",
+  "name": "uiptel",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

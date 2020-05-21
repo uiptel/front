@@ -32,3 +32,7 @@ svg {
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}

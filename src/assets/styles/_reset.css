@@ -31,7 +31,6 @@ dd {
 /* Set core root defaults */
 html {
   scroll-behavior: smooth;
-  font-size: calc(100vw / 138);
 }
 
 /* Set core body defaults */

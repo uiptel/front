@@ -24,7 +24,7 @@
         &Dot {
             width: .6rem;
             height: .6rem;
-            background: $colorGreen;
+            background: var(--colorGreen);
             opacity: 0;
             transition: .3s ease-in-out;
         }
@@ -39,17 +39,23 @@
             border-radius: 50%;
         }
     }
+    &__view:hover > &__field {
+        border: 2px solid var(--colorGreen);
+    }
     &__input:checked~&__view &__field &__fieldDot {
         opacity: 1;
+    }
+    &__input:checked~&__view &__content {
+        font-weight: 600;
     }
     &__content {
         width: calc(100% - 2.1rem);
         font-size: 1.15rem;
         font-family: 'Regular';
-        color: $colorDark;
+        color: var(--colorDark);
         user-select: none;
     }
     &__link {
-        color: $colorBlue;
+        color: var(--colorBlue);
     }
 }

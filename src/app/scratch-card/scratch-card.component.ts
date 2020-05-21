@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Scratch } from '../models/scratch';
 
 @Component({
-    selector: 'app-scratch-card',
-    template: `
-    <div>
+  selector: 'app-scratch-card',
+  template: `
+    <div class="scratch">
       <img [src]="imgPath" alt="" /> 
       <label class="confirm _round">
         <input type="checkbox" class="confirm__input" formControlName="isSelected" />
@@ -16,8 +16,8 @@ import { Scratch } from '../models/scratch';
         </div>
       </label>
     </div>
-    `,
-    styleUrls: ['./scratch-card.component.scss']
+  `,
+  styleUrls: ['./scratch-card.component.scss']
 })
 export class ScratchCardComponent implements OnInit {
   @Input() public readonly scratch: Scratch;

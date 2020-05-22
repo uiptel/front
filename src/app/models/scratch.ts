@@ -6,7 +6,7 @@ export interface Scratch {
 };
 
 export const scratches: Scratch[] = [
-    { evaluation: 50, price: 55, title: 'scratch_card_50_title', img: 'card-50.jpeg'},
-    { evaluation: 100, price: 110, title: 'scratch_card_100_title', img: 'card-100.jpeg'},
-    { evaluation: 200, price: 220, title: 'scratch_card_200_title', img: 'card-200.jpeg'},
+    { evaluation: 50, price: 60, title: 'scratch_card_50', img: 'card-50.jpeg'},
+    { evaluation: 100, price: 120, title: 'scratch_card_100', img: 'card-100.jpeg'},
+    { evaluation: 200, price: 240, title: 'scratch_card_200', img: 'card-200.jpeg'},
 ];

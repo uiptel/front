@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Scratch } from '../models/scratch';
 
 @Component({
@@ -6,7 +6,7 @@ import { Scratch } from '../models/scratch';
   template: `
     <div class="scratch">
       <label class="confirm _round">
-        <input type="checkbox" class="confirm__input" formControlName="isSelected" />
+        <input type="radio" name="scratch" (change)="select.emit(scratch)" class="confirm__input" />
         <div class="confirm__view">
           <div class="confirm__field" [class._error]="false">
             <div class="confirm__fieldDot"></div>
@@ -21,6 +21,7 @@ import { Scratch } from '../models/scratch';
 })
 export class ScratchCardComponent implements OnInit {
   @Input() public readonly scratch: Scratch;
+  @Output() public select = new EventEmitter<Scratch>();
 
   constructor() { }
 

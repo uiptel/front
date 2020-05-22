@@ -1,6 +1,6 @@
 {
-    "scratch_card_50_title": "Top-up 50RUB",
-    "scratch_card_100_title": "Top-up 100RUB",
-    "scratch_card_200_title": "Top-up 200RUB",
+    "scratch_card_50": "Top-up 50RUB",
+    "scratch_card_100": "Top-up 100RUB",
+    "scratch_card_200": "Top-up 200RUB",
     "menu.buy_topup_account": "Buy top-up account of the mobile operator \"Phoenix\" DNR"
 }

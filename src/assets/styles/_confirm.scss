@@ -2,20 +2,42 @@
     width: 100%;
     position: relative;
     display: block;
+    cursor: pointer;
+
+    img {
+        width: 100%;
+        object-fit: contain;
+        border: 2px solid var(--colorLightGray);
+    }
+
+    &:hover > img {
+        border-color: var(--colorLightGray) var(--colorGray) var(--colorGray) var(--colorLightGray);
+    }
+
+    &:hover  &__field {
+        border: 2px solid var(--colorGreen);
+    }
+
+    &:hover  &__content {
+        color: var(--colorDark);
+    }
+
     &__input {
         display: none;
     }
+
     &__view {
         width: 100%;
         @extend .row;
         align-items: center;
-        cursor: pointer;
+        margin-bottom: 0.7rem;
     }
+
     &__field {
         width: 1.4rem;
         height: 1.4rem;
         border-radius: .2rem;
-        border: 1px solid #c8c8c8;
+        border: 1px solid var(--colorGray);
         position: relative;
         margin: 0 .7rem 0 0;
         @extend .col;
@@ -33,28 +55,34 @@
             border: 1px solid #D93939;
         }
     }
+
     &._round &__field {
         border-radius: 50%;
         &Dot {
             border-radius: 50%;
         }
     }
-    &__view:hover > &__field {
-        border: 2px solid var(--colorGreen);
-    }
-    &__input:checked~&__view &__field &__fieldDot {
+
+    &__input:checked ~ &__view &__field &__fieldDot {
         opacity: 1;
     }
-    &__input:checked~&__view &__content {
+
+    &__input:checked ~ &__view &__content {
         font-weight: 600;
     }
+
+    &__input:checked ~ img {
+        filter: grayscale(70%);
+    }
+
     &__content {
         width: calc(100% - 2.1rem);
         font-size: 1.15rem;
         font-family: 'Regular';
-        color: var(--colorDark);
+        color: var(--colorGray);
         user-select: none;
     }
+
     &__link {
         color: var(--colorBlue);
     }

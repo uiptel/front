@@ -5,7 +5,6 @@ import { Scratch } from '../models/scratch';
   selector: 'app-scratch-card',
   template: `
     <div class="scratch">
-      <img [src]="imgPath" alt="" /> 
       <label class="confirm _round">
         <input type="checkbox" class="confirm__input" formControlName="isSelected" />
         <div class="confirm__view">
@@ -14,6 +13,7 @@ import { Scratch } from '../models/scratch';
           </div>
           <span class="confirm__content">{{ scratch.title | translate }}</span>
         </div>
+        <img [src]="imgPath" alt="" />
       </label>
     </div>
   `,

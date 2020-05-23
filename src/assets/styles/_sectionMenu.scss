@@ -1,0 +1,43 @@
+.sectionMenu {
+    &__content {
+        width: 100%;
+        height: 100%;
+        @extend .col;
+    }
+    &__title {
+        width: 100%;
+        text-align: center;
+        padding: 0 2rem;
+    }
+    &__title + &__form {
+        margin-top: 1rem;
+    }
+    &__form {
+        width: 100%;
+        &El {
+            width: 100%;
+
+            &._flex {
+                display: flex;
+                flex-flow: column nowrap;
+                @include min-width($w1) {
+                    flex-flow: row nowrap;
+                }
+
+                ._item {
+                    flex: 1;
+                }
+            }
+
+            &._fix {
+                width: 21rem;
+            }            
+            &._confirm {
+                margin: 3rem 0;
+            }
+        }
+        &El+&El {
+            margin-top: 1rem;
+        }
+    }
+}

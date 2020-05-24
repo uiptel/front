@@ -3,5 +3,6 @@
     "scratch_card_100": "Top-up 100RUB",
     "scratch_card_200": "Top-up 200RUB",
     "menu.buy_topup_account": "Buy top-up account of the mobile operator \"Phoenix\" DNR",
-    "menu.buy_topup": "Buy"
+    "menu.buy_topup": "Buy",
+    "menu.user_agreement": "I confirm that accept user agreement and term of service"
 }

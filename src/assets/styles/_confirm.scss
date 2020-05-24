@@ -3,6 +3,11 @@
     position: relative;
     display: block;
     cursor: pointer;
+    --size: 1;
+
+    &._medium {
+        --size: 0.66;
+    }
 
     img {
         width: 100%;
@@ -34,8 +39,8 @@
     }
 
     &__field {
-        width: 1.4rem;
-        height: 1.4rem;
+        width: calc(1.4rem * var(--size));
+        height: calc(1.4rem * var(--size));
         border-radius: .2rem;
         border: 1px solid var(--colorGray);
         position: relative;
@@ -44,8 +49,8 @@
         justify-content: center;
         align-items: center;
         &Dot {
-            width: .6rem;
-            height: .6rem;
+            width: calc(.6rem * var(--size));
+            height: calc(.6rem * var(--size));
             background: var(--colorGreen);
             opacity: 0;
             transition: .3s ease-in-out;
@@ -68,7 +73,7 @@
     }
 
     &__input:checked ~ &__view &__content {
-        font-weight: 600;
+        color: #000;
     }
 
     &__input:checked ~ img {
@@ -77,7 +82,7 @@
 
     &__content {
         width: calc(100% - 2.1rem);
-        font-size: 1.15rem;
+        font-size: calc(1.15rem * var(--size));
         font-family: 'Regular';
         color: var(--colorGray);
         user-select: none;

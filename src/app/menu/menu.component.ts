@@ -10,12 +10,23 @@ import { Scratch } from '../models/scratch';
           <p class="title _grey _medium">{{ 'menu.buy_topup_account' | translate }}</p>
         </div>
 
-        <form class="sectionMenu__form" (ngSubmit)="onSubmit($event)" novalidate>
+        <form class="sectionMenu__form" (submit)="onSubmit($event)" novalidate>
           <div class="sectionMenu__formEl _flex">
-            <div class="_item" *ngFor="let scratch of scratches" >
+            <div class="_item" *ngFor="let scratch of scratches">
               <app-scratch-card [scratch]="scratch" (selected)="onSelected($event)">
               </app-scratch-card>
             </div>
+          </div>
+          <div class="sectionMenu__formEl _confirm">
+            <label class="confirm _medium">
+              <input type="checkbox" class="confirm__input" />
+              <div class="confirm__view">
+                <div class="confirm__field">
+                  <div class="confirm__fieldDot"></div>
+                </div>
+                <span class="confirm__content">{{ 'menu.user_agreement' | translate }}</span>
+              </div>
+            </label>
           </div>
           <div class="sectionMenu__formEl _button">
             <div class="_item">
@@ -41,7 +52,7 @@ export class MenuComponent {
 
   onSubmit($event: Event) {
     console.log('submit =>', $event);
-    return false;
+    $event.preventDefault();
   }
 
   get isValid() {

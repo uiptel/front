@@ -29,14 +29,15 @@
 
             &._button {
                 @extend .col;
-                margin-top: 3rem;
+                margin-top: 1rem;
                 align-items: center;
                 ._item {
                     width: 7rem;
                 }
             }            
             &._confirm {
-                margin: 3rem 0;
+                width: 25rem;
+                margin: 3rem auto 0 auto;
             }
         }
     }

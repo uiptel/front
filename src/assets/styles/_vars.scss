@@ -1,7 +1,9 @@
 
 :root {
-  --colorGreen: hsl(83, 83%, 35%);
-  --colorBlue: hsl(213, 100%, 36%);
+  --greenHue: 83;
+  --greenSat: 83%;
+  --greenLight: 35%;
+  --colorGreen: hsl(var(--greenHue), var(--greenSat), var(--greenLight));
   --colorLightGray: hsl(0, 0%, 78%);
   --colorGray: hsl(0, 0%, 38%);
   --colorDark: hsl(0, 0%, 20%);

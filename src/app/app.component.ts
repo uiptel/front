@@ -15,7 +15,7 @@ const USER_LANG_KEY = 'lang';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  public lang: string;  
+  public lang: string;
 
   constructor(private translate: TranslateService) {
     const { defaultLang } = config;

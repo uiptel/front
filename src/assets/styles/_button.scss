@@ -1,7 +1,7 @@
 .button {
     width: 100%;
-    min-width: 11rem;
-    padding: .8rem 2rem;
+    min-width: 7rem;
+    padding: .5rem 1rem;
     border-radius: .4rem;
     text-align: center;
     cursor: pointer;
@@ -10,7 +10,7 @@
     align-items: center;
     user-select: none;
     font-family: 'Regular';
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: 1px solid transparent;
     &._normal {
         background: var(--colorGreen);
@@ -18,11 +18,6 @@
     }
     &._group {
         width: auto;
-    }
-    &._disable {
-        background: none;
-        color: var(--colorLightGray);
-        border-color: #e7e6e6;
     }
     &._dark {
         background: none;
@@ -45,14 +40,12 @@
     }
     &._hard {
         font-family: 'Bold';
-        font-size: 1.4rem;
-        padding: .7rem 2rem;
-        height: 3.5rem;
     }
     &:disabled {
-        background: none;
-        color: var(--colorLightGray);
-        border-color: #e7e6e6;
+        background: hsl(var(--greenHue), calc(var(--greenSat) * 0.12), calc(var(--greenLight) * 1.8));
         pointer-events: none;
+    }
+    &:hover {
+        background: hsl(var(--greenHue), var(--greenSat), calc(var(--greenLight) - 5%));
     }
 }

@@ -1,34 +1,3 @@
-
-button {
-  padding: 0;
-  border: none;
-  color: inherit;
-  background-color: transparent;
-  cursor: pointer;
-  vertical-align: middle;
-}
-  
-svg {
-  width: 1em;
-  path {
-    fill: #4691f6;
-  }
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }

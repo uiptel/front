@@ -85,3 +85,29 @@ img:not([alt]) {
     scroll-behavior: auto !important;
   }
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  @include min-width($w1) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}

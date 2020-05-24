@@ -3,7 +3,7 @@ export interface Scratch {
     price: number;
     title: string;
     img: string;
-};
+}
 
 export const scratches: Scratch[] = [
     { evaluation: 50, price: 60, title: 'scratch_card_50', img: 'card-50.jpeg'},

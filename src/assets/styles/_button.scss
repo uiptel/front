@@ -12,6 +12,8 @@
     font-family: 'Regular';
     font-size: 1rem;
     border: 1px solid transparent;
+    outline: none;
+
     &._normal {
         background: var(--colorGreen);
         color: #fff;

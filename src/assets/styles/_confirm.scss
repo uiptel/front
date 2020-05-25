@@ -49,8 +49,8 @@
         justify-content: center;
         align-items: center;
         &Dot {
-            width: calc(.6rem * var(--size));
-            height: calc(.6rem * var(--size));
+            width: calc(.5rem * var(--size));
+            height: calc(.5rem * var(--size));
             background: var(--colorGreen);
             opacity: 0;
             transition: .3s ease-in-out;

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Scratch } from '../models/scratch';
 
 @Component({
@@ -10,16 +11,16 @@ import { Scratch } from '../models/scratch';
           <p class="title _grey _medium">{{ 'menu.buy_topup_account' | translate }}</p>
         </div>
 
-        <form class="sectionMenu__form" (submit)="onSubmit($event)" novalidate>
+        <form class="sectionMenu__form"  [formGroup]="form" (ngSubmit)="onSubmit(form.value)" novalidate>
           <div class="sectionMenu__formEl _flex">
             <div class="_item" *ngFor="let scratch of scratches">
-              <app-scratch-card [scratch]="scratch" (selected)="onSelected($event)">
+              <app-scratch-card [scratch]="scratch" formControlName="scratch">
               </app-scratch-card>
             </div>
           </div>
           <div class="sectionMenu__formEl _confirm">
             <label class="confirm _medium">
-              <input type="checkbox" class="confirm__input" />
+              <input type="checkbox" class="confirm__input" formControlName="agreement" />
               <div class="confirm__view">
                 <div class="confirm__field">
                   <div class="confirm__fieldDot"></div>
@@ -30,7 +31,7 @@ import { Scratch } from '../models/scratch';
           </div>
           <div class="sectionMenu__formEl _button">
             <div class="_item">
-              <button class="button _normal _hard" type="submit" [disabled]="!isValid">
+              <button class="button _normal _hard" type="submit" [disabled]="!form.valid">
                 {{ 'menu.buy_topup' | translate }}
               </button>
             </div>
@@ -42,20 +43,19 @@ import { Scratch } from '../models/scratch';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
-  constructor(@Inject('SCRATCHES') public readonly scratches: Scratch[]) { }
-  private scratch: Scratch;
+  public form: FormGroup;
 
-  onSelected(scratch: Scratch) {
-    this.scratch = scratch;
-    console.log('select => ', scratch);
+  constructor(
+    @Inject('SCRATCHES') public readonly scratches: Scratch[],
+    private fb: FormBuilder
+  ) {
+    this.form = fb.group({
+      scratch: [null, Validators.required],
+      agreement: [false, Validators.requiredTrue]
+    });
   }
 
-  onSubmit($event: Event) {
-    console.log('submit =>', $event);
-    $event.preventDefault();
-  }
-
-  get isValid() {
-    return !!this.scratch;
+  onSubmit(data: { scratch: Scratch, agreement: boolean }) {
+    console.log('submit => ', data);
   }
 }

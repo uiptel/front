@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -20,6 +21,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     imports: [
         BrowserModule,
+        ReactiveFormsModule,
         HttpClientModule,
         TranslateModule.forRoot({
             loader: {

@@ -16,15 +16,15 @@
     }
 
     &:hover > img {
-        border-color: var(--colorLightGray) var(--colorGray) var(--colorGray) var(--colorLightGray);
+        border-color: cssvar(color-light-gray) cssvar(color-gray) cssvar(color-gray) cssvar(color-light-gray);
     }
 
     &:hover  &__field {
-        border: 2px solid var(--colorGreen);
+        border: 2px solid cssvar(color-green);
     }
 
     &:hover  &__content {
-        color: var(--colorDark);
+        color: cssvar(color-dark);
     }
 
     &__input {
@@ -42,7 +42,7 @@
         width: calc(1.4rem * var(--size));
         height: calc(1.4rem * var(--size));
         border-radius: .2rem;
-        border: 1px solid var(--colorGray);
+        border: 1px solid cssvar(color-gray);
         position: relative;
         margin: 0 .7rem 0 0;
         @extend .col;
@@ -51,7 +51,7 @@
         &Dot {
             width: calc(.5rem * var(--size));
             height: calc(.5rem * var(--size));
-            background: var(--colorGreen);
+            background: cssvar(color-green);
             opacity: 0;
             transition: .3s ease-in-out;
         }
@@ -84,11 +84,7 @@
         width: calc(100% - 2.1rem);
         font-size: calc(1.15rem * var(--size));
         font-family: 'Regular';
-        color: var(--colorGray);
+        color: cssvar(color-gray);
         user-select: none;
-    }
-
-    &__link {
-        color: var(--colorBlue);
     }
 }

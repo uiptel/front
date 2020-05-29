@@ -106,7 +106,7 @@ img:not([alt]) {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  @include min-width($w1) {
+  @include min-width() {
     flex-direction: row;
     align-items: flex-start;
   }

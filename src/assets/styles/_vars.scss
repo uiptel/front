@@ -1,45 +1,32 @@
 
-:root {
-  --greenHue: 83;
-  --greenSat: 83%;
-  --greenLight: 35%;
-  --colorGreen: hsl(var(--greenHue), var(--greenSat), var(--greenLight));
-  --colorLightGray: hsl(0, 0%, 78%);
-  --colorGray: hsl(0, 0%, 38%);
-  --colorDark: hsl(0, 0%, 20%);
-}
+$default_prefix: app;
+$min-landscape-width: 500px;
 
-$w1: 500px;
-$min_width: 320px;
-$max_width: 1200px;
-$min_font: 16px;
-$max_font: 24px;
-
-@mixin min-width($w) {
+@mixin min-width($w: $min-landscape-width) {
   @media screen and (min-width: $w) {
       @content;
   }
-} 
-
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
 }
 
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
+@function cssvar($name, $prefix: $default_prefix) {
+  @return var(--#{$prefix}-#{$name});
+}
 
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-      font-size: $min-font-size;
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-      }
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-      }
+@mixin cssvars($css_variables, $prefix: $default_prefix) {
+  :root {
+    @each $name, $value in $css_variables {
+      --#{$prefix}-#{$name}: #{$value};
     }
   }
 }
+
+@include cssvars((
+  green-hue: 83,
+  green-sat: 83%,
+  green-light: 35%,
+  color-green: hsl(cssvar(green-hue), cssvar(green-sat), cssvar(green-light)),
+  color-light-gray: hsl(0, 0%, 78%),
+  color-gray: hsl(0, 0%, 38%),
+  color-dark: hsl(0, 0%, 20%),
+  w1: 500px
+));

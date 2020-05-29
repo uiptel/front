@@ -13,9 +13,12 @@
     font-size: 1rem;
     border: 1px solid transparent;
     outline: none;
+    text-transform: uppercase;
+    --disabled-color: hsl(#{cssvar(green-hue)}, calc(#{cssvar(green-sat)} * 0.12), calc(#{cssvar(green-light)} * 1.8));
+    --hover-color: hsl(#{cssvar(green-hue)}, #{cssvar(green-sat)}, calc(#{cssvar(green-light)} - 5%));
 
     &._normal {
-        background: var(--colorGreen);
+        background: cssvar(color-green);
         color: #fff;
     }
     &._group {
@@ -33,8 +36,8 @@
     }
     &._green {
         background: none;
-        color: var(--colorGreen);
-        border-color: var(--colorGreen);
+        color: cssvar(color-green);
+        border-color: cssvar(color-green);
     }
     &._dark {
         border-color: #000;
@@ -44,10 +47,13 @@
         font-family: 'Bold';
     }
     &:disabled {
-        background: hsl(var(--greenHue), calc(var(--greenSat) * 0.12), calc(var(--greenLight) * 1.8));
+        background: var(--disabled-color);
         pointer-events: none;
     }
     &:hover {
-        background: hsl(var(--greenHue), var(--greenSat), calc(var(--greenLight) - 5%));
+        background: var(--hover-color);
+    }
+    &:active {
+        transform: translateY(2px);
     }
 }

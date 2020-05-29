@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Scratch } from '../models/scratch';
 
@@ -7,7 +7,7 @@ import { Scratch } from '../models/scratch';
   template: `
     <div class="scratch">
       <label class="confirm _round">
-        <input type="radio" name="scratch" (change)="change($event)" class="confirm__input" />
+        <input type="radio" name="scratch" (change)="change()" class="confirm__input" />
         <div class="confirm__view">
           <div class="confirm__field" [class._error]="false">
             <div class="confirm__fieldDot"></div>
@@ -25,22 +25,14 @@ import { Scratch } from '../models/scratch';
     multi: true
   }],
 })
-export class ScratchCardComponent implements OnInit, ControlValueAccessor {
+export class ScratchCardComponent implements ControlValueAccessor {
   @Input() public readonly scratch: Scratch;
   private selected: Scratch;
 
   private onChange: (_: any) => void;
   private onTouched: () => void;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    const { img, title } = this.scratch;
-    console.log({img, title});
-  }
-
-  change($event: Event) {
-    console.log('change $event => ', {$event, scratch: this.scratch});
+  change() {
     this.selected = this.scratch;
     this.onChange(this.selected);
     this.onTouched();
@@ -48,7 +40,6 @@ export class ScratchCardComponent implements OnInit, ControlValueAccessor {
 
   writeValue(value: any): void {
     this.selected = value;
-    console.log('writeValue:: value => ', {value}, '; selected => ', this.selected);
   }
 
   registerOnChange(fn: (_: any) => void): void {

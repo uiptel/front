@@ -8,13 +8,14 @@ const USER_LANG_KEY = 'lang';
 @Component({
   selector: 'app-root',
   template: `
-    <div class="app">
+    <div class="container root">
+      <app-nav></app-nav>
       <app-menu></app-menu>
     </div>
     `,
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./root.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class RootComponent implements OnInit {
   public lang: string;
 
   constructor(private translate: TranslateService) {

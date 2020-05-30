@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Scratch } from '../models/scratch';
+import { Scratch } from './models/scratch';
 
 @Component({
   selector: 'app-menu',
@@ -40,7 +40,6 @@ import { Scratch } from '../models/scratch';
       </div>
     </section>
   `,
-  styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
   public form: FormGroup;

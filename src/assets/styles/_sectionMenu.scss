@@ -1,4 +1,5 @@
 .sectionMenu {
+    padding: 1rem 0;
     &__content {
         width: 100%;
         height: 100%;
@@ -10,7 +11,7 @@
         padding: 0 2rem;
     }
     &__title + &__form {
-        margin-top: 1rem;
+        margin-top: 2rem;
     }
     &__form {
         width: 100%;

@@ -4,10 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AppComponent } from './app.component';
-import { ScratchCardComponent } from './scratch-card/scratch-card.component';
-import { scratches } from './models/scratch';
+import { RootComponent } from './root.component';
+import { ScratchCardComponent } from './menu/scratch-card/scratch-card.component';
+import { scratches } from './menu/models/scratch';
 import { MenuComponent } from './menu/menu.component';
+import { NavComponent } from './nav/nav.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -15,9 +16,10 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
     declarations: [
-        AppComponent,
+        RootComponent,
         MenuComponent,
         ScratchCardComponent,
+        NavComponent,
     ],
     imports: [
         BrowserModule,
@@ -34,6 +36,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     providers: [
         { provide: 'SCRATCHES', useValue: scratches },
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [RootComponent]
 })
 export class AppModule { }

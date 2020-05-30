@@ -1,3 +1,6 @@
+@charset "utf-8";
+/*! “use utf-8 charset” */
+
 @import "vars";
 @import "reset";
 @import "body";
@@ -7,3 +10,7 @@
 @import "fonts";
 @import "button";
 @import "sectionMenu";
+@import "sectionNav";
+@import "bulma/sass/utilities/_all";
+@import "bulma/sass/components/navbar";
+@import "bulma/sass/elements/container";

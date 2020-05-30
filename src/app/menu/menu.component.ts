@@ -14,7 +14,7 @@ import { Scratch } from '../models/scratch';
         <form class="sectionMenu__form"  [formGroup]="form" (ngSubmit)="onSubmit(form.value)" novalidate>
           <div class="sectionMenu__formEl _flex">
             <div class="_item" *ngFor="let scratch of scratches">
-              <app-scratch-card [scratch]="scratch" formControlName="scratch">
+              <app-scratch-card [value]="scratch" formControlName="scratch">
               </app-scratch-card>
             </div>
           </div>
@@ -57,5 +57,6 @@ export class MenuComponent {
 
   onSubmit(data: { scratch: Scratch, agreement: boolean }) {
     console.log('submit => ', data);
+    this.form.reset();
   }
 }

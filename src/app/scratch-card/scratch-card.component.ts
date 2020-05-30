@@ -1,18 +1,19 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Scratch } from '../models/scratch';
+import { debug } from 'src/logger';
 
 @Component({
   selector: 'app-scratch-card',
   template: `
     <div class="scratch">
       <label class="confirm _round">
-        <input type="radio" name="scratch" (change)="change()" class="confirm__input" />
+        <input type="radio" name="scratch" (change)="change()" [checked]="checked" class="confirm__input" />
         <div class="confirm__view">
           <div class="confirm__field" [class._error]="false">
             <div class="confirm__fieldDot"></div>
           </div>
-          <span class="confirm__content">{{ scratch.title | translate }}</span>
+          <span class="confirm__content">{{ value.title | translate }}</span>
         </div>
         <img [src]="imgPath" alt="" />
       </label>
@@ -26,20 +27,20 @@ import { Scratch } from '../models/scratch';
   }],
 })
 export class ScratchCardComponent implements ControlValueAccessor {
-  @Input() public readonly scratch: Scratch;
-  private selected: Scratch;
+  @Input() public readonly value: Scratch;
+  public checked = false;
 
   private onChange: (_: any) => void;
   private onTouched: () => void;
 
   change() {
-    this.selected = this.scratch;
-    this.onChange(this.selected);
+    this.checked = true;
+    this.onChange(this.value);
     this.onTouched();
   }
 
   writeValue(value: any): void {
-    this.selected = value;
+    this.checked = value === this.value;
   }
 
   registerOnChange(fn: (_: any) => void): void {
@@ -51,6 +52,6 @@ export class ScratchCardComponent implements ControlValueAccessor {
   }
 
   get imgPath(): string {
-    return `./assets/img/${this.scratch.img}`;
+    return `./assets/img/${this.value.img}`;
   }
 }

@@ -106,8 +106,14 @@ img:not([alt]) {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  ._item + ._item {
+    margin-top: 1rem;
+  }
   @include min-width() {
     flex-direction: row;
     align-items: flex-start;
+    ._item + ._item {
+      margin-top: 0;
+    }
   }
 }

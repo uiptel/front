@@ -3,10 +3,12 @@
     position: relative;
     display: block;
     cursor: pointer;
+    margin: 0 auto;
     --size: 1;
 
     &._medium {
         --size: 0.66;
+        width: 90%;
     }
 
     img {

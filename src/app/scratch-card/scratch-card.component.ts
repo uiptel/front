@@ -1,7 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Scratch } from '../models/scratch';
-import { debug } from 'src/logger';
 
 @Component({
   selector: 'app-scratch-card',

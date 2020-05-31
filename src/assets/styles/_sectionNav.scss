@@ -1,5 +1,12 @@
 .nav {
     .navbar-item {
         font-family: "light";
-    }   
+        .logo-content {
+            font-family: "Black";
+            color: cssvar(color-gray);
+            &::first-letter {
+                color: cssvar(color-green)
+            }
+        }
+    }
 }

@@ -5,15 +5,21 @@ import config from 'src/config';
 
 const USER_LANG_KEY = 'lang';
 
+interface Lang {
+  lang: string;
+  flag: string;
+}
+
+const langs: Lang[] = [{lang: 'ru-RU', flag: 'ru'}, {lang: 'en-US', flag: 'gb'}];
+
 @Component({
   selector: 'app-root',
   template: `
     <div class="container root">
-      <app-nav></app-nav>
+      <app-nav [flag]="flag" (toggle)="onToggle()"></app-nav>
       <app-menu></app-menu>
     </div>
     `,
-  styleUrls: ['./root.component.scss'],
 })
 export class RootComponent implements OnInit {
   public lang: string;
@@ -25,6 +31,17 @@ export class RootComponent implements OnInit {
     translate.setDefaultLang(defaultLang);
     translate.use(lang);
     debug(`set default language => ${defaultLang}; user language => ${lang}`);
+  }
+
+  get flag(): string {
+    return langs.find(({lang}) => lang === this.lang)?.flag;
+  }
+
+  onToggle() {
+    const next = langs.find(({lang}) => lang !== this.lang);
+    if (next) {
+      this.translate.use(next.lang);
+    }
   }
 
   ngOnInit(): void {

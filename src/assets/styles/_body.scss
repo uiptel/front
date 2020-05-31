@@ -30,3 +30,7 @@ $max_font: 24px;
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
+
+.root {
+  background-color: cssvar(color-very-light-gray);
+}

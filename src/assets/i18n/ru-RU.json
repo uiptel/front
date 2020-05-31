@@ -1,5 +1,12 @@
 {
-    "scratch_card_50_title": "Скретч-карта номиналом 50RUB",
-    "scratch_card_100_title": "Скретч-карта номиналом 100RUB",
-    "scratch_card_200_title": "Скретч-карта номиналом 200RUB"
+    "scratch_card_50": "Пополнение 50₽",
+    "scratch_card_100": "Пополнение 100₽",
+    "scratch_card_200": "Пополнение 200₽",
+    "menu.buy_topup_account": "Оператор связи “Феникс” ДНР",
+    "menu.buy_topup": "Купить",
+    "menu.user_agreement": "Принимаю условия использования сервиса",
+    "nav.top_up": "Пополнить",
+    "nav.sales_point": "Точки продаж",
+    "nav.support": "Поддержка"
+
 }

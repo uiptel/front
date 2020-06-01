@@ -10,6 +10,7 @@ import { scratches } from './menu/models/scratch';
 import { MenuComponent } from './menu/menu.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { AppRouterModule } from './router.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -27,6 +28,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
+        AppRouterModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

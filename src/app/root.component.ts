@@ -18,6 +18,7 @@ const langs: Lang[] = [{lang: 'ru-RU', flag: 'ru'}, {lang: 'en-US', flag: 'gb'}]
     <div class="container root">
       <app-nav [flag]="flag" (toggle)="onToggle()"></app-nav>
       <app-menu></app-menu>
+      <app-footer></app-footer>
     </div>
     `,
 })

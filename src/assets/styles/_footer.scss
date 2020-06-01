@@ -1,0 +1,9 @@
+.footer {
+    padding: 6rem 1.5rem 2rem;
+    color: cssvar(color-gray);
+    .logo-content {
+        &::first-letter {
+            color: cssvar(color-green);
+        }
+    }
+}

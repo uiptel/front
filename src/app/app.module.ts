@@ -9,6 +9,7 @@ import { ScratchCardComponent } from './menu/scratch-card/scratch-card.component
 import { scratches } from './menu/models/scratch';
 import { MenuComponent } from './menu/menu.component';
 import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -20,6 +21,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         MenuComponent,
         ScratchCardComponent,
         NavComponent,
+        FooterComponent,
     ],
     imports: [
         BrowserModule,

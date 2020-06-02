@@ -18,9 +18,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
         </div>
         <div class="navbar-menu" [ngClass]="{'is-active': isActive}">
           <div class="navbar-start">
-            <a class="navbar-item">{{ 'nav.top_up' | translate }}</a>
-            <a class="navbar-item">{{ 'nav.sales_point' | translate }}</a>
-            <a class="navbar-item">{{ 'nav.support' | translate }}</a>
+            <a class="navbar-item" routerLink="/top-up" routerLinkActive="is-active">
+              {{ 'nav.top_up' | translate }}
+            </a>
+            <a class="navbar-item" routerLink="/sale-point" routerLinkActive="is-active">
+              {{ 'nav.sales_point' | translate }}
+            </a>
+            <a class="navbar-item" routerLink="/support" routerLinkActive="is-active">
+              {{ 'nav.support' | translate }}
+            </a>
           </div>
           <div class="navbar-end">
             <a class="navbar-item" (click)="toggle.emit(true)">

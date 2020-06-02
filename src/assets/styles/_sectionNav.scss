@@ -1,6 +1,7 @@
 .nav {
     .navbar-item {
-        font-family: "light";
+        text-decoration: none;
+        font-family: "Regular";
         .logo-content {
             font-family: "Medium";
             color: cssvar(color-gray);
@@ -8,9 +9,12 @@
                 color: cssvar(color-green);
             }
         }
-        &:hover {
+        &.is-active {
+            background-color: cssvar(color-very-light-gray);
             color: cssvar(color-green-hover);
-            font-weight: 600;
+        }
+        &[href]:hover {
+            text-decoration: underline;
         }
     }
 }

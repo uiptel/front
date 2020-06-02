@@ -33,3 +33,7 @@ $min-landscape-width: 500px;
   color-dark: hsl(0, 0%, 20%),
   w1: 500px
 ));
+
+/* -- Override Bulma variables here -- */
+$navbar-item-active-background-color: cssvar(color-very-light-gray);
+$navbar-item-hover-color: cssvar(color-dark);

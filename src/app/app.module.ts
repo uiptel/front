@@ -11,6 +11,8 @@ import { MenuComponent } from './menu/menu.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRouterModule } from './router.module';
+import { SalePointComponent } from './sale-point/sale-point.component';
+import { SupportComponent } from './support/support.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -21,6 +23,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         RootComponent,
         MenuComponent,
         ScratchCardComponent,
+        SalePointComponent,
+        SupportComponent,
         NavComponent,
         FooterComponent,
     ],

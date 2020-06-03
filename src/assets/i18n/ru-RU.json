@@ -7,6 +7,7 @@
     "menu.user_agreement": "Принимаю условия использования сервиса",
     "nav.top_up": "Пополнить",
     "nav.sales_point": "Точки продаж",
-    "nav.support": "Поддержка"
+    "nav.support": "Поддержка",
+    "point.sale_points_address": "Адреса пунктов продажи"
 
 }

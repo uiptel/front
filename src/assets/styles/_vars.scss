@@ -28,6 +28,7 @@ $min-landscape-width: 500px;
   color-green-hover: hsl(cssvar(green-hue), cssvar(green-sat), calc(#{cssvar(green-light)} * 0.86)),
   color-green-disabled: hsl(cssvar(green-hue), calc(#{cssvar(green-sat)} * 0.12), calc(#{cssvar(green-light)} * 1.8)),
   color-very-light-gray: hsl(0, 0%, 98%),
+  color-some-gray: hsl(0, 0%, 91%),
   color-light-gray: hsl(0, 0%, 78%),
   color-gray: hsl(0, 0%, 38%),
   color-dark: hsl(0, 0%, 20%),

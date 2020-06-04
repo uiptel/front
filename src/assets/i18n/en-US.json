@@ -8,5 +8,8 @@
     "nav.top_up": "Top up",
     "nav.sales_point": "Sale points",
     "nav.support": "Support",
-    "point.sale_points_address": "Sale points address"
+    "point.sale_points_address": "Sale points address",
+    "support.scratch_code": "_unique_cards_code_",
+    "support.transfer_amount": "_transfer_amount_",
+    "support.destination_number": "_destination_number_"
 }

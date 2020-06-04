@@ -8,6 +8,9 @@
     "nav.top_up": "Пополнить",
     "nav.sales_point": "Точки продаж",
     "nav.support": "Поддержка",
-    "point.sale_points_address": "Адреса пунктов продажи"
+    "point.sale_points_address": "Адреса пунктов продажи",
+    "support.scratch_code": "_уникальный_код_карты_",
+    "support.transfer_amount": "_сумма_перевода_",
+    "support.destination_number": "_номер_получателя_"
 
 }

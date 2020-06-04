@@ -29,6 +29,7 @@ $max_font: 24px;
 
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  overflow-y: scroll;
 }
 
 .root {

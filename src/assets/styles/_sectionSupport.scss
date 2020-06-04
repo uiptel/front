@@ -5,24 +5,27 @@
         padding: 1rem 0;
         @extend .col;
     }
-    &__table {
-        padding: 1rem 0;
+    &__list {
         width: 100%;
         ul {
-            @extend .flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            @extend .col;
+            flex-wrap: nowrap;
             align-items: stretch;
             padding: 0 1rem;
             margin: 0 auto;
             li {
                 font-family: 'Regular';
-                width: 11rem;
+                font-size: 1.2rem;
+                color: cssvar(color-gray);
+                width: 100%;
                 margin-top: 1rem;
                 padding: 0.5em;
                 &:hover {
                     background-color: cssvar(color-some-gray);
                     cursor: pointer;
+                }
+                .ussd {
+                    margin-right: .5em;
                 }
             }
         }

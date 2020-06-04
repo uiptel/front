@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-support',
   template: `
-    <section>
-      <div class="title">
-        <p>Support</p>
+    <section class="sectionSupport">
+      <div class="sectionSupport__content">
       </div>
     </section>
   `,

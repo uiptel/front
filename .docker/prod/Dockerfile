@@ -1,5 +1,9 @@
 # ---- BUILD IMAGE ----
 FROM node:alpine AS builder
+
+RUN apk update && apk upgrade && \
+    apk add --no-cache git
+
 RUN mkdir app
 WORKDIR /app
 COPY . .
@@ -9,5 +13,6 @@ RUN npm run build
 # ---- PROD IMAGE ----
 FROM nginx:stable-alpine
 COPY .docker/nginx.conf /etc/nginx/conf.d/default.conf
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /app/dist /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+RUN rm -rf *
+COPY --from=builder /app/dist .

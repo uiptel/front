@@ -52,7 +52,6 @@ export class MenuComponent {
       scratch: [null, Validators.required],
       agreement: [false, Validators.requiredTrue]
     });
-    console.log('menu:: =>');
   }
 
   onSubmit(data: { scratch: Scratch, agreement: boolean }) {

@@ -2,15 +2,26 @@
     "scratch_card_50": "Пополнение 50₽",
     "scratch_card_100": "Пополнение 100₽",
     "scratch_card_200": "Пополнение 200₽",
-    "menu.buy_topup_account": "Оператор связи “Феникс” ДНР",
-    "menu.buy_topup": "Купить",
-    "menu.user_agreement": "Принимаю условия использования сервиса",
-    "nav.top_up": "Пополнить",
-    "nav.sales_point": "Точки продаж",
-    "nav.support": "Поддержка",
-    "point.sale_points_address": "Адреса пунктов продажи",
-    "support.scratch_code": "_уникальный_код_карты_",
-    "support.transfer_amount": "_сумма_перевода_",
-    "support.destination_number": "_номер_получателя_"
-
+    "menu": {
+        "buy_topup_account": "Оператор связи “Феникс” ДНР",
+        "buy_topup": "Купить",
+        "user_agreement": "Принимаю условия использования сервиса"
+    },
+    "nav": {
+        "top_up": "Пополнить",
+        "sales_point": "Точки продаж",
+        "support": "Помощь (USSD)"
+    },
+    "point": {
+        "sale_points_address": "Адреса пунктов продажи"
+    },
+    "ussd": {
+        "topup": "* 100 * _уникальный_код_карты_ #",
+        "topup_description": "Пополнить мобильный счет скретч картой",
+        "transfer": "* 101 * 2 * _сумма_перевода_ * _номер_получателя_ #",
+        "transfer_description": "Перевод средств (до 50₽ с комиссией 5₽) на счет номера назначения",
+        "balance_description": "Получить текущий баланс мобильного счета",
+        "info_description": "Заказать информационное СМС сообщение с расширенной информацией о состоянии счета",
+        "my_number_description": "Получить мой мобильный номер телефона"
+    }
 }

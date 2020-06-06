@@ -2,14 +2,29 @@
     "scratch_card_50": "Top-up 50RUB",
     "scratch_card_100": "Top-up 100RUB",
     "scratch_card_200": "Top-up 200RUB",
-    "menu.buy_topup_account": "Mobile operator “Phoenix” DNR",
-    "menu.buy_topup": "Buy",
-    "menu.user_agreement": "I confirm that accept user agreement and term of service",
-    "nav.top_up": "Top up",
-    "nav.sales_point": "Sale points",
-    "nav.support": "Support",
-    "point.sale_points_address": "Sale points address",
-    "support.scratch_code": "_unique_cards_code_",
-    "support.transfer_amount": "_transfer_amount_",
-    "support.destination_number": "_destination_number_"
+    "menu": { 
+        "buy_topup_account": "Mobile operator “Phoenix” DNR",
+        "buy_topup": "Buy",
+        "user_agreement": "I confirm that accept user agreement and term of service"
+    },
+    "nav": {
+        "top_up": "Top up",
+        "sales_point": "Sale points",
+        "support": "USSD help"
+    },
+    "point": {
+        "sale_points_address": "Sale points address"
+    },
+    "ussd": {
+        "topup": "* 100 * _unique_cards_code_ #",
+        "topup_description": "Top-up mobile account by scratch card",
+        "transfer": "* 101 * 2 * _transfer_amount_ * _destination_number_ #",
+        "transfer_description": "Transfer amount (until 50RUB with 5RUB fee) to destination number account",
+        "balance": "* 101 #",
+        "balance_description": "Get current mobile account balance",
+        "info": "* 101 * 101 #",
+        "info_description": "Order the informational SMS message with extended information about account state",
+        "my_number": "* 161 #",
+        "my_number_description": "Get my current mobile phone number"
+    }
 }

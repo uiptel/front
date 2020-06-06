@@ -33,9 +33,7 @@ interface ResponseModel<T> {
 export class SalePointComponent implements OnInit {
   public points: string[];
 
-  constructor(private readonly http: HttpClient) {
-    console.log('sp:: =>');
-  }
+  constructor(private readonly http: HttpClient) { }
 
   ngOnInit() {
     this.getPoints().subscribe(data => this.points = data);

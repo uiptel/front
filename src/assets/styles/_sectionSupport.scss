@@ -13,18 +13,19 @@
             align-items: stretch;
             padding: 0 1rem;
             margin: 0 auto;
-            li {
+            .ussd {
                 font-family: 'Regular';
-                font-size: 1.2rem;
-                color: cssvar(color-gray);
                 width: 100%;
-                margin-top: 1rem;
                 padding: 0.5em;
                 &:hover {
                     background-color: cssvar(color-some-gray);
                     cursor: pointer;
                 }
-                .ussd {
+                ._title {
+                    color: cssvar(color-gray);
+                }
+                ._command__content {
+                    font-family: 'MediumItalic';
                     margin-right: .5em;
                 }
             }

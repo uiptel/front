@@ -11,7 +11,7 @@ echo "version => ${APP_VERSION}, build image => ${BUILDER_IMAGE_NAME}"
 docker build --target builder -t ${BUILDER_IMAGE_NAME} -f ${DOCKER_FILE} .
 [ $? != 0 ] && echo "build image with target \"builder\" fail, exit." &&  exit 1
 
-BUILD_HASH=`docker run --rm ${BUILDER_IMAGE_NAME} node getBuildHash.js`
+BUILD_HASH=ff00ffee
 PRODUCTION_IMAGE_NAME=${REGISTRY}/${APP_NAME}:${BUILD_HASH:-local}
 
 echo "build production image => ${PRODUCTION_IMAGE_NAME}"

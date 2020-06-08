@@ -14,7 +14,7 @@ import { Scratch } from '../models/scratch';
           </div>
           <span class="confirm__content">{{ value.title | translate }}</span>
         </div>
-        <img src="./assets/img/{{ value.img }}" alt="" />
+        <img src="/assets/img/{{ value.img }}" alt="" />
       </label>
     </div>
   `,

@@ -3,14 +3,11 @@
 . .env
 
 DOCKER_PARAMS=""
-COMMAND=sh
 APP_VERSION=`node -pe "require('./package.json').version"`
-CONTAINER_NAME=${APP_NAME}.${APP_ENV}_v${APP_VERSION:-local}
+CONTAINER=${APP_NAME}.${APP_ENV}_v${APP_VERSION:-local}
 
-if [ ${APP_ENV} == "dev" ]; then 
-    USER=`whoami`
-	DOCKER_PARAMS="-u ${USER}"
-    COMMAND=bash
-fi
+USER=`id -u -n`
+COMMAND=bash
 
-docker exec -it ${DOCKER_PARAMS} ${CONTAINER_NAME} ${COMMAND}
+echo "exec command => \"${COMMAND}\" in container => ${CONTAINER}"
+docker exec -it -u ${USER} ${CONTAINER} ${COMMAND}

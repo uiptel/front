@@ -2,7 +2,7 @@
 
 . .env
 
-export USER_NAME=`id -u -n` USER_UID=`id -u` APP_VERSION=`node -pe "require('./package.json').version"`
+export USER_NAME=`id -u -n` USER_UID=`id -u` APP_VERSION=`cat package.json | jq -r '.version'`
 
 if [ -z "$1" ]; then
 	echo "required param for docker-compose missed allow => {build|up|...}"

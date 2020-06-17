@@ -1,6 +1,7 @@
 #!/bin/sh
 
 IMAGE=node:buster-slim
-echo "run command => \"${@}\" in new container from image => \"${IMAGE}\""
-docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app ${IMAGE} ${@}
+WORKDIR=/usr/src/app
 
+echo "run command => \"${@}\" work dir => \"${WORKDIR}\" container from image => \"${IMAGE}\""
+docker run -it --rm -v ${PWD}:${WORKDIR} -w ${WORKDIR} ${IMAGE} ${@}

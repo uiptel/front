@@ -1,8 +1,9 @@
 #!/bin/bash
 
 . .env
+. .funcs
 
-APP_VERSION=`node -pe "require('./package.json').version"`
+APP_VERSION=$(app_version)
 LOCAL_PORT=127.0.0.1:8080
 LOCAL_PORT_SSL=127.0.0.1:8443
 CONTAINER_NAME=${APP_NAME}.prod_v${APP_VERSION}

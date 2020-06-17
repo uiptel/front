@@ -1,14 +1,10 @@
 # ---- BUILD IMAGE ----
 FROM node:alpine AS builder
 
-RUN apk update && apk upgrade && \
-    apk add --no-cache git
-
-RUN mkdir app
 WORKDIR /app
 COPY . .
 RUN npm ci
-RUN npm run build
+RUN npx ng build --prod
 
 # ---- PROD IMAGE ----
 FROM nginx:stable-alpine

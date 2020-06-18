@@ -34,6 +34,10 @@ html {
 
 .root {
   background-color: cssvar(color-very-light-gray);
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 .row {

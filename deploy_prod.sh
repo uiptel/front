@@ -1,12 +1,15 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
-	echo "required param  <docker_image_name> missed"
-	exit 1
-fi
-
 CONTAINER=uiptel-front
-PRODUCTION_IMAGE=anryzhov/uiptel:0.0.0
+PRODUCTION_IMAGE=${1:-anryzhov/uiptel:0.0.0}
 DEPLOYMENT=uiptel
 
-kubectl set image deployment/${DEPLOYMENT} ${CONTAINER}=${PRODUCTION_IMAGE}
+echo ">>>>>>>>>>> push image => \"${PRODUCTION_IMAGE}\" to docker hub ..."
+docker push ${PRODUCTION_IMAGE}
+DIGEST_IMAGE=$(docker inspect --format='{{index .RepoDigests 0}}' ${PRODUCTION_IMAGE})
+
+[ -z "${DIGEST_IMAGE}" ] && echo "!!! exit due digest image not set"
+
+echo ">>>>>>>>>>> deploy image => \"${DIGEST_IMAGE}\" to container => \"${CONTAINER}@${DEPLOYMENT}\" ..."
+kubectl set image deployment/${DEPLOYMENT} ${CONTAINER}=${DIGEST_IMAGE}
+kubectl set env deployment/${DEPLOYMENT} DIGEST_IMAGE=${DIGEST_IMAGE}

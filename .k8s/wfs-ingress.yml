@@ -1,17 +1,14 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: uiptel-ingress
+  name: wfs-ingress
   annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  tls:
-  - hosts:
-      - uiptel.com
-    secretName: uiptel-tls-cert
   rules:
-  - host: uiptel.com
+  - host: omed.wordsforscrabble.com
     http:
       paths:
       - backend:
-          serviceName: uiptel
+          serviceName: wfs-frontend
           servicePort: 80

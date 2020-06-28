@@ -26,7 +26,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/payeer_1068351030.txt"
             ],
             "styles": [
               "src/assets/styles/main.scss"

@@ -1,4 +1,3 @@
-# ./docker/php/Dockerfile
 FROM node:buster-slim
 
 EXPOSE 4200

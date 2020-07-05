@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { debug } from 'src/logger';
+import { debug, info } from 'src/logger';
 import config from 'src/config';
+import { Stat } from './Stat';
 
 const USER_LANG_KEY = 'lang';
+const { apiUrl } = config;
 
 interface Lang {
   lang: string;
@@ -25,13 +28,18 @@ const langs: Lang[] = [{lang: 'ru-RU', flag: 'ru'}, {lang: 'en-US', flag: 'gb'}]
 export class RootComponent implements OnInit {
   public lang: string;
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private readonly http: HttpClient) {
     const { defaultLang } = config;
-    const lang = localStorage.getItem(USER_LANG_KEY) || window.navigator.language || defaultLang;
+    const language = localStorage.getItem(USER_LANG_KEY) || window.navigator.language || defaultLang;
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     translate.setDefaultLang(defaultLang);
-    translate.use(lang);
-    debug(`set default language => ${defaultLang}; user language => ${lang}`);
+    translate.use(language);
+    info(`default language => ${defaultLang}; user language => ${language}; timezone => ${timezone}`);
+
+    // -- Send statistic to backend --
+    this.http.post<Stat>(`${apiUrl}/stat`, { language, timezone })
+      .subscribe(stat => debug('stat => ', stat));
   }
 
   get flag(): string {
@@ -46,7 +54,7 @@ export class RootComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.translate.onLangChange.subscribe(({ lang }: LangChangeEvent): void => {
+    this.translate.onLangChange.subscribe(({ lang }) => {
       this.lang = lang;
       localStorage.setItem(USER_LANG_KEY, lang);
       debug(`language change event => ${lang}`);

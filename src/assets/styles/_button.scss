@@ -17,6 +17,7 @@
 
     &._normal {
         background: cssvar(color-green);
+        transition: .5s;
         color: #fff;
     }
     &._group {

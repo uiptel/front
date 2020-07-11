@@ -6,7 +6,7 @@ services:
     image: '${APP_NAME}.${APP_ENV}:${APP_VERSION:-local}'
     hostname: '${APP_NAME}'
     working_dir: ${APP_PATH}
-    #  command: ["ng", "serve"]
+    command: ["npx", "ng", "serve"]
     build:
       context: .docker/${APP_ENV}
       args:

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { debug, info } from 'src/logger';
-import config from 'src/config';
+import { environment } from 'src/environments/environment';
 import { Stat } from './Stat';
 
 const USER_LANG_KEY = 'lang';
-const { apiUrl } = config;
+const { apiUrl } = environment;
 
 interface Lang {
   lang: string;
@@ -29,7 +29,7 @@ export class RootComponent implements OnInit {
   public lang: string;
 
   constructor(private translate: TranslateService, private readonly http: HttpClient) {
-    const { defaultLang } = config;
+    const { defaultLang } = environment;
     const language = localStorage.getItem(USER_LANG_KEY) || window.navigator.language || defaultLang;
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 

@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  debug: false,
+  defaultLang: 'en-US',
+  apiUrl: 'https://api.uiptel.com',
 };

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONTAINER=uiptel-front
-PRODUCTION_IMAGE=${1:-anryzhov/uiptel:0.0.0}
+PRODUCTION_IMAGE=${1:-anryzhov/uiptel-front:0.0.0}
 DEPLOYMENT=uiptel
 
 echo ">>>>>>>>>>> push image => \"${PRODUCTION_IMAGE}\" to docker hub ..."

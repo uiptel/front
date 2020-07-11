@@ -1,10 +1,10 @@
 // tslint:disable: no-console
 
-import config from './config';
+import { environment } from './environments/environment';
 
 const noop = () => undefined;
 
-export const debug =  config.debug ? console.debug.bind(console) : noop;
-export const log = config.debug ? console.log.bind(console) : noop;
-export const dir = config.debug ? console.dir.bind(console) : noop;
+export const debug =  environment.debug ? console.debug.bind(console) : noop;
+export const log = environment.debug ? console.log.bind(console) : noop;
+export const dir = environment.debug ? console.dir.bind(console) : noop;
 export const info = console.info.bind(console);

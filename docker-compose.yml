@@ -6,7 +6,7 @@ services:
     image: '${APP_NAME}.${APP_ENV}:${APP_VERSION:-local}'
     hostname: '${APP_NAME}'
     working_dir: ${APP_PATH}
-    command: ["npx", "ng", "serve"]
+    command: ["sleep.js"]
     build:
       context: .docker/${APP_ENV}
       args:
@@ -21,4 +21,4 @@ services:
 networks:
   default:
     driver: bridge
-    name: ${APP_NAME}
+    name: ${BRIDGE}

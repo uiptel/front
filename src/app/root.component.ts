@@ -13,6 +13,14 @@ interface Lang {
   flag: string;
 }
 
+interface AppEnv {
+  'build_date': string,
+  'digest_image': string,
+  'vcs_ref': string,
+  version: string,
+  hostname: string,
+}
+
 const langs: Lang[] = [{lang: 'ru-RU', flag: 'ru'}, {lang: 'en-US', flag: 'gb'}];
 
 @Component({
@@ -38,8 +46,11 @@ export class RootComponent implements OnInit {
     info(`default language => ${defaultLang}; user language => ${language}; timezone => ${timezone}`);
 
     // -- Send statistic to backend --
-    this.http.post<Stat>(`${apiUrl}/stat`, { language, timezone })
-      .subscribe(stat => debug('stat => ', stat));
+    this.http.get<AppEnv>('/app.json').subscribe(env => {
+      const { digest_image: digestImage, version } = env;
+      this.http.post<Stat>(`${apiUrl}/stat`, { language, timezone, digestImage, version })
+        .subscribe(stat => debug('stat => ', stat));
+    });
   }
 
   get flag(): string {

@@ -1,8 +1,12 @@
 #!/bin/bash
 
-CONTAINER=uiptel-front
-PRODUCTION_IMAGE=${1:-anryzhov/uiptel-front:0.0.0}
-DEPLOYMENT=uiptel
+. .env
+. .funcs
+
+APP_VERSION=$(app_version)
+CONTAINER=${APP_NAME}
+DEPLOYMENT=${APP_NAME}
+PRODUCTION_IMAGE=${REGISTRY}/${APP_NAME}:${APP_VERSION}
 
 echo ">>>>>>>>>>> push image => \"${PRODUCTION_IMAGE}\" to docker hub ..."
 docker push ${PRODUCTION_IMAGE}

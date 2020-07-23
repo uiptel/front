@@ -37,6 +37,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
       </nav>
     </section>
   `,
+  styles: [':host { position: sticky; top: 0; z-index: 10 }'],
 })
 export class NavComponent implements OnInit {
   @Input() public readonly flag: string;

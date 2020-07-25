@@ -1,23 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: uiptel-front
+  name: front
+  namespace: uiptel
   labels:
-    app: uiptel-front
+    app: front
 spec:
   replicas: 2
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: uiptel-front
+      app: front
   template:
     metadata:
       labels:
-        app: uiptel-front
+        app: front
     spec:
       containers:
-      - name: uiptel-front
+      - name: front
         image: anryzhov/uiptel-front@sha256:8543134ad1f1582a51ae476f23bd7d328fb9324eaf853fb361bb51212d8afba5
         imagePullPolicy: Always
+        env:
+          - name: DIGEST_IMAGE
+            value: anryzhov/uiptel-front@sha256:8543134ad1f1582a51ae476f23bd7d328fb9324eaf853fb361bb51212d8afba5
         ports:
-        - containerPort: 80
+          - containerPort: 80

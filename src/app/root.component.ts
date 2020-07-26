@@ -46,8 +46,9 @@ export class RootComponent implements OnInit {
     info(`default language => ${defaultLang}; user language => ${language}; timezone => ${timezone}`);
 
     // -- Send statistic to backend --
-    this.http.get<AppEnv>('/app.json').subscribe(env => {
-      const { digest_image: digestImage, version } = env;
+    this.http.get<AppEnv>(`/app.json?no-cache=${(new Date()).getTime()}`).subscribe(env => {
+      const { build_date: buildDate, vcs_ref: vcsRef, digest_image: digestImage, version } = env;
+      info(`version => ${version} image => ${digestImage} buildDate => ${buildDate} gitHash => ${vcsRef}`);
       this.http.post<Stat>(`${apiUrl}/stat`, { language, timezone, digestImage, version })
         .subscribe(stat => debug('stat => ', stat));
     });

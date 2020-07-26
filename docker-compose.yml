@@ -2,8 +2,8 @@ version:  '3.7'
 
 services:
   front:
-    container_name: '${APP_NAME}.${APP_ENV}_v${APP_VERSION:-local}'
-    image: '${APP_NAME}.${APP_ENV}:${APP_VERSION:-local}'
+    container_name: '${APP_NAME}_${APP_ENV}'
+    image: '${APP_NAME}_${APP_ENV}:${APP_VERSION:-local}'
     hostname: '${APP_NAME}'
     working_dir: ${APP_PATH}
     command: ["sleep.js"]

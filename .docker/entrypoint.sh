@@ -1,13 +1,8 @@
 #!/bin/sh
 set -e
 
-JSON="{\
-    \"build_date\": \"${BUILD_DATE}\",\
-    \"vcs_ref\": \"${VCS_REF}\",\
-    \"version\": \"${VERSION}\",\
-    \"digest_image\": \"${DIGEST_IMAGE}\",\
-    \"hostname\": \"${HOSTNAME}\"\
-}"
+JS="window.__app_env={\"build_date\": \"${BUILD_DATE}\", \"vcs_ref\": \"${VCS_REF}\", \
+    \"version\": \"${VERSION}\", \"digest_image\": \"${DIGEST_IMAGE}\", \"hostname\": \"${HOSTNAME}\"}"
 
-echo ${JSON} | envsubst > env.json
+echo ${JS} | envsubst > env.js
 exec "$@"

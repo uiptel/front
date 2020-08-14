@@ -20,7 +20,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL org.label-schema.vcs-ref=$COMMIT_ID
 LABEL org.label-schema.version=$VERSION
 
-ENV BUILD_DATE=${BUILD_DATE} VCS_REF=${COMMIT_ID} VERSION=${VERSION} WORKDIR=${WORKDIR}
+ENV BUILD_DATE=${BUILD_DATE} VCS_REF=${COMMIT_ID} VERSION=${VERSION} WORKDIR=${WORKDIR} DIGEST_IMAGE=undefined
 
 COPY .docker/entrypoint.sh /usr/local/bin/
 COPY .docker/nginx.conf /etc/nginx/conf.d/default.conf

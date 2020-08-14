@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { langs, USER_LANG_KEY } from '../langs';
+import { debug } from 'src/logger';
 
 @Component({
   selector: 'app-nav',
@@ -29,8 +32,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
             </a>
           </div>
           <div class="navbar-end">
-            <a class="navbar-item" (click)="toggle.emit(true)">
-              <span class="flag-icon flag-icon-{{flag}}"></span>
+            <a class="navbar-item" (click)="toggle()">
+              <span class="flag-icon flag-icon-{{ flag() }}"></span>
             </a>
           </div>
         </div>
@@ -40,11 +43,27 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styles: [':host { position: sticky; top: 0; z-index: 10 }'],
 })
 export class NavComponent implements OnInit {
-  @Input() public readonly flag: string;
-  @Output() public toggle = new EventEmitter<boolean>();
-  public isActive = false;
+    public isActive = false;
+    public lang: string;
 
-  constructor() { }
+    constructor(private readonly translate: TranslateService) { }
 
-  ngOnInit(): void { }
+    ngOnInit(): void {
+        this.translate.onLangChange.subscribe(({ lang }) => {
+          this.lang = lang;
+          localStorage.setItem(USER_LANG_KEY, lang);
+          debug(`language change event => ${lang}`);
+        });
+    }
+
+    flag(): string {
+        return langs.find(({lang}) => lang === this.lang)?.flag;
+    }
+
+    toggle() {
+        const next = langs.find(({lang}) => lang !== this.lang);
+        if (next) {
+            this.translate.use(next.lang);
+        }
+    }
 }

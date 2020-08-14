@@ -9,5 +9,5 @@ JSON="{\
     \"hostname\": \"${HOSTNAME}\"\
 }"
 
-echo ${JSON} | envsubst > app.json
+echo ${JSON} | envsubst > env.json
 exec "$@"

@@ -4,6 +4,8 @@ metadata:
   name: front
   namespace: uiptel
   annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
 spec:
   tls:
   - hosts:

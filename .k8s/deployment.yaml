@@ -6,8 +6,8 @@ metadata:
   labels:
     app: front
 spec:
-  replicas: 2
-  revisionHistoryLimit: 2
+  replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: front
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: front
-        image: anryzhov/uiptel-front@sha256:8543134ad1f1582a51ae476f23bd7d328fb9324eaf853fb361bb51212d8afba5
+        image: anryzhov/front.uiptel:0.0.0
         imagePullPolicy: Always
         env:
           - name: DIGEST_IMAGE

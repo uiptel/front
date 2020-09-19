@@ -58,7 +58,7 @@ export class AppModule {
         const { defaultLang } = environment;
         const language = localStorage.getItem(USER_LANG_KEY) || window.navigator.language || defaultLang;
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const { build_date: buildDate, vcs_ref: git, digest_image: digestImage, version } = __app_env;
+        const { BUILD_DATE: buildDate, VCS_REF: git, DIGEST_IMAGE: digestImage, VERSION: version } = window.__app_env;
 
         translate.setDefaultLang(defaultLang);
         translate.use(language);

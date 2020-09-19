@@ -1,0 +1,22 @@
+version:  '3.7'
+
+services:
+  front:
+    container_name: ${CONTAINER_NAME}
+    image: ${IMAGE}
+    environment: 
+      DIGEST_IMAGE: 00000000FFFFFFFF
+    build:
+      context: .
+      dockerfile: .docker/prod/Dockerfile
+      args:
+        BUILD_DATE: ${BUILD_DATE}
+        COMMIT_ID: ${COMMIT_ID}
+        VERSION: ${APP_VERSION}
+    ports:
+      - "80:80"
+
+networks:
+  default:
+    driver: bridge
+    name: ${NAMESPACE}

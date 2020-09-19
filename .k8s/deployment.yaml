@@ -11,6 +11,8 @@ spec:
   selector:
     matchLabels:
       app: front
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -20,8 +22,5 @@ spec:
       - name: front
         image: anryzhov/front.uiptel:0.0.0
         imagePullPolicy: Always
-        env:
-          - name: DIGEST_IMAGE
-            value: anryzhov/uiptel-front@sha256:8543134ad1f1582a51ae476f23bd7d328fb9324eaf853fb361bb51212d8afba5
         ports:
           - containerPort: 80

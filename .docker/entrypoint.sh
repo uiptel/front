@@ -1,8 +1,14 @@
 #!/bin/sh
-set -e
+set -eu
 
-JS="window.__app_env={\"build_date\": \"${BUILD_DATE}\", \"vcs_ref\": \"${VCS_REF}\", \
-    \"version\": \"${VERSION}\", \"digest_image\": \"${DIGEST_IMAGE}\", \"hostname\": \"${HOSTNAME}\"}"
+EXPOSE_VARS=${EXPOSE_VARS:-HOSTNAME}
+JS="window.__app_env={"
+
+for VAR in ${EXPOSE_VARS}
+do
+    JS="${JS}\"${VAR}\": \"\${${VAR}}\", "
+done
+JS="${JS%??}}"
 
 echo ${JS} | envsubst > env.js
 exec "$@"

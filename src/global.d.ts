@@ -1,9 +1,10 @@
 interface AppEnv {
-  'build_date': string,
-  'digest_image': string,
-  'vcs_ref': string,
-  version: string,
-  hostname: string,
+  BUILD_DATE: string,
+  DIGEST_IMAGE: string,
+  VCS_REF: string,
+  VERSION: string,
+  HOSTNAME: string,
+  NODE_ENV: string,
 }
 
 declare var __app_env: AppEnv;

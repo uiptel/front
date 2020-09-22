@@ -1,9 +1,5 @@
 FROM node:buster-slim
 
-EXPOSE 4200
-
-ENV NODE_ENV=development
-
 ARG USER_NAME
 ARG USER_ID
 

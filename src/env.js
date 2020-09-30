@@ -3,5 +3,7 @@ window.__app_env = {
     "VCS_REF": "ffffffff",
     "VERSION": "0.0.0",
     "DIGEST_IMAGE": "anryzhov/uiptel-front@sha256:00000000",
-    "HOSTNAME": "localhost"
+    "HOSTNAME": "localhost",
+    "API_URL": "https://api.uiptel.com",
+    "NODE_ENV": "development",
 };

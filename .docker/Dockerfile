@@ -11,8 +11,7 @@ FROM nginx:stable-alpine
 ARG BUILD_DATE
 ARG COMMIT_ID
 ARG VERSION
-ARG WORKDIR=/usr/share/nginx/html
-ARG NODE_ENV=production
+ARG WORKDIR
 
 # Labels.
 LABEL maintainer="ryzhov@uiptel.com"
@@ -21,8 +20,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL org.label-schema.vcs-ref=$COMMIT_ID
 LABEL org.label-schema.version=$VERSION
 
-ENV EXPOSE_VARS="BUILD_DATE VCS_REF VERSION DIGEST_IMAGE HOSTNAME NODE_ENV"
-ENV BUILD_DATE=${BUILD_DATE} VCS_REF=${COMMIT_ID} VERSION=${VERSION} WORKDIR=${WORKDIR} NODE_ENV=${NODE_ENV}
+ENV EXPOSE_VARS="BUILD_DATE VCS_REF VERSION DIGEST_IMAGE HOSTNAME API_URL NODE_ENV"
+ENV BUILD_DATE=${BUILD_DATE} VCS_REF=${COMMIT_ID} VERSION=${VERSION} WORKDIR=${WORKDIR}
 
 COPY .docker/entrypoint.sh /usr/local/bin/
 COPY .docker/nginx.conf /etc/nginx/conf.d/default.conf

@@ -5,6 +5,8 @@ services:
     container_name: ${CONTAINER_NAME}
     image: ${IMAGE}
     environment: 
+      NODE_ENV: production
+      API_URL: https://api.uiptel.com
       DIGEST_IMAGE: 00000000FFFFFFFF
     build:
       context: .
@@ -13,6 +15,7 @@ services:
         BUILD_DATE: ${BUILD_DATE}
         COMMIT_ID: ${COMMIT_ID}
         VERSION: ${APP_VERSION}
+        WORKDIR: /usr/share/nginx/html
     ports:
       - "80:80"
 

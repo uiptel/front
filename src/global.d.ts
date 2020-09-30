@@ -4,6 +4,7 @@ interface AppEnv {
   VCS_REF: string,
   VERSION: string,
   HOSTNAME: string,
+  API_URL: string,
   NODE_ENV: string,
 }
 

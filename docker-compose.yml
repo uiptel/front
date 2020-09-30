@@ -2,18 +2,13 @@ version:  '3.7'
 
 services:
   front:
-    container_name: '${APP_NAME}_${APP_ENV}'
-    image: '${APP_NAME}_${APP_ENV}:${APP_VERSION:-local}'
-    hostname: '${APP_NAME}'
+    container_name: ${CONTAINER_NAME}
+    image: anryzhov/node-dev:buster-slim
+    hostname: ${APP_NAME}
     working_dir: ${APP_PATH}
     command: ["sleep.js"]
     environment:
       NODE_ENV: development
-    build:
-      context: .docker/${APP_ENV}
-      args:
-        USER_NAME: ${USER_NAME}
-        USER_ID: ${USER_UID}
     volumes:
       - /home/${USER_NAME}:/home/${USER_NAME}
       - ./:${APP_PATH}

@@ -8,7 +8,7 @@ services:
       DIGEST_IMAGE: 00000000FFFFFFFF
     build:
       context: .
-      dockerfile: .docker/prod/Dockerfile
+      dockerfile: .docker/Dockerfile
       args:
         BUILD_DATE: ${BUILD_DATE}
         COMMIT_ID: ${COMMIT_ID}

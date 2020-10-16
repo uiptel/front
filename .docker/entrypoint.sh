@@ -11,4 +11,5 @@ done
 JS="${JS%??}}"
 
 echo ${JS} | envsubst > env.js
+cat index.html | envsubst > index.html
 exec "$@"

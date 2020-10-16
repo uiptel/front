@@ -6,14 +6,14 @@ services:
     image: ${IMAGE}
     environment: 
       NODE_ENV: production
-      API_URL: https://api.uiptel.com
+      API_URL: https://uiptel.com/api
       DIGEST_IMAGE: 00000000FFFFFFFF
     build:
       context: .
       dockerfile: .docker/Dockerfile
       args:
         BUILD_DATE: ${BUILD_DATE}
-        COMMIT_ID: ${COMMIT_ID}
+        VCS_REF: ${VCS_REF}
         VERSION: ${APP_VERSION}
         WORKDIR: /usr/share/nginx/html
     ports:

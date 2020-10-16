@@ -4,6 +4,6 @@ window.__app_env = {
     "VERSION": "0.0.0",
     "DIGEST_IMAGE": "anryzhov/uiptel-front@sha256:00000000",
     "HOSTNAME": "localhost",
-    "API_URL": "https://api.uiptel.com",
+    "API_URL": "https://uiptel.com/api",
     "NODE_ENV": "development",
 };

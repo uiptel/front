@@ -2,14 +2,14 @@
 set -eu
 
 EXPOSE_VARS=${EXPOSE_VARS:-HOSTNAME}
-JS="window.__app_env={"
+JSON="{"
 
 for VAR in ${EXPOSE_VARS}
 do
-    JS="${JS}\"${VAR}\": \"\${${VAR}}\", "
+    JSON="${JSON}\"${VAR}\": \"\${${VAR}}\", "
 done
-JS="${JS%??}}"
+JSON="${JSON%??}}"
 
-echo ${JS} | envsubst > env.js
-cat index.html | envsubst > index.html
+export JSON=$(echo ${JSON} | envsubst | base64 -w 0)
+cat index.html | envsubst > index.tmp && mv index.tmp index.html
 exec "$@"

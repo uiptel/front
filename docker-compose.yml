@@ -13,7 +13,7 @@ services:
 
   front:
     container_name: ${CONTAINER_NAME}
-    image: anryzhov/node-dev:buster-slim
+    image: ${DEV_IMAGE}
     hostname: ${APP_NAME}
     working_dir: ${APP_PATH}
     command: ["sleep.js"]

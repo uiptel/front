@@ -3,11 +3,24 @@ version:  '3.7'
 services:
   nginx:
     image: nginx:stable-alpine
+    entrypoint: entrypoint.sh
+    command:  ["nginx", "-g", "daemon off;"]
+    working_dir: /usr/share/nginx/html
+    environment:
+      NODE_ENV: development
+      BUILD_DATE: ${BUILD_DATE}
+      VCS_REF: ${VCS_REF}
+      VERSION: ${APP_VERSION}
+      API_URL: https://uiptel.com/api
+      DIGEST_IMAGE: DEV_BUILD_00000000FFFFFFFF
+      EXPOSE_VARS: 'BUILD_DATE VCS_REF VERSION DIGEST_IMAGE HOSTNAME API_URL NODE_ENV'
+ 
     depends_on:
       - front
     volumes:
       - ./.docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./dist:/usr/share/nginx/html:ro
+      - ./.docker/entrypoint.sh:/usr/local/bin/entrypoint.sh:ro
+      - ./dist:/usr/share/nginx/html:rw
     ports:
       - 80:80
 
@@ -23,7 +36,7 @@ services:
       VCS_REF: ${VCS_REF}
       VERSION: ${APP_VERSION}
       API_URL: https://uiptel.com/api
-      DIGEST_IMAGE: 00000000FFFFFFFF
+      DIGEST_IMAGE: DEV_SERVE_00000000FFFFFFFF
     volumes:
       - /home/${USER_NAME}:/home/${USER_NAME}
       - ./:${APP_PATH}

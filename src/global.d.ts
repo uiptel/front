@@ -1,4 +1,4 @@
-interface AppEnv {
+export interface AppEnv {
   BUILD_DATE: string,
   DIGEST_IMAGE: string,
   VCS_REF: string,
@@ -8,4 +8,6 @@ interface AppEnv {
   NODE_ENV: string,
 }
 
-declare var __app_env: AppEnv;
+declare global {
+    interface Window { __app_env: AppEnv; }
+}

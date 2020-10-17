@@ -20,7 +20,15 @@ spec:
     spec:
       containers:
       - name: front
-        image: anryzhov/front.uiptel:0.0.0
+        image: ${DIGEST_IMAGE}
         imagePullPolicy: Always
+        env:
+          - name: NODE_ENV
+            value: production
+          - name: API_URL
+            value: https://uiptel.com/api
+          - name: DIGEST_IMAGE
+            value: ${DIGEST_IMAGE}
+ 
         ports:
           - containerPort: 80

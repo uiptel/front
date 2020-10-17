@@ -19,8 +19,6 @@ import { environment } from 'src/environments/environment';
 import { USER_LANG_KEY } from './langs';
 import { Stat } from './Stat';
 
-const { API_URL: apiUrl, NODE_ENV: nodeEnv } = __app_env;
-
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
 }
@@ -58,7 +56,9 @@ export class AppModule {
         const { defaultLang } = environment;
         const language = localStorage.getItem(USER_LANG_KEY) || window.navigator.language || defaultLang;
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const { BUILD_DATE: buildDate, VCS_REF: git, DIGEST_IMAGE: digestImage, VERSION: version } = __app_env;
+
+        const { BUILD_DATE: buildDate, VCS_REF: git, DIGEST_IMAGE: digestImage, VERSION: version,
+                API_URL: apiUrl, NODE_ENV: nodeEnv } = window.__app_env;
 
         translate.setDefaultLang(defaultLang);
         translate.use(language);
@@ -66,9 +66,7 @@ export class AppModule {
         http.post<Stat>(`${apiUrl}/stat`, { language, timezone, digestImage, version })
             .subscribe(stat => debug('stat => ', stat));
 
-        info(`default language => ${defaultLang}; user language => ${language}; timezone => ${timezone};
-        version => ${version}; build date => ${buildDate}; image => ${digestImage}; git => ${git};
-        nodeEnv => ${nodeEnv}`);
+        info(`default language => ${defaultLang}; user language => ${language}; timezone => ${timezone}`);
     }
 }
 

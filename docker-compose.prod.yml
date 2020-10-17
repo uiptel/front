@@ -7,7 +7,7 @@ services:
     environment: 
       NODE_ENV: production
       API_URL: https://uiptel.com/api
-      DIGEST_IMAGE: PROD00000000FFFFFFFF
+      DIGEST_IMAGE: PROD_00000000FFFFFFFF
     build:
       context: .
       dockerfile: .docker/Dockerfile

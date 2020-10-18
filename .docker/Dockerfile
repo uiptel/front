@@ -3,8 +3,7 @@ FROM node:alpine AS builder
 
 WORKDIR /app
 COPY . .
-RUN npm ci
-RUN npx ng build --prod
+RUN npm cache verify && npm ci && npx ng build --prod
 
 # ---- PROD IMAGE ----
 FROM nginx:stable-alpine

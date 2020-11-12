@@ -15,9 +15,9 @@ ARG WORKDIR
 # Labels.
 LABEL maintainer="ryzhov@uiptel.com"
 LABEL org.label-schema.schema-version="1.0"
-LABEL org.label-schema.build-date=$BUILD_DATE
-LABEL org.label-schema.vcs-ref=$COMMIT_ID
-LABEL org.label-schema.version=$VERSION
+LABEL org.label-schema.build-date=${BUILD_DATE}
+LABEL org.label-schema.vcs-ref=${VCS_REF}
+LABEL org.label-schema.version=${VERSION}
 
 ENV EXPOSE_VARS="BUILD_DATE VCS_REF VERSION DIGEST_IMAGE HOSTNAME API_URL NODE_ENV"
 ENV BUILD_DATE=${BUILD_DATE} VCS_REF=${VCS_REF} VERSION=${VERSION} WORKDIR=${WORKDIR}

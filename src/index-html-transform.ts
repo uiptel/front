@@ -4,29 +4,21 @@ import * as minfier from 'html-minifier';
 import { AppEnv } from './global';
 
 const serve = $ => {
-    const  { API_URL, VERSION, DIGEST_IMAGE, BUILD_DATE, VCS_REF, NODE_ENV, HOSTNAME } = process.env;
-    const env: AppEnv = { API_URL, VERSION, DIGEST_IMAGE, BUILD_DATE, VCS_REF, NODE_ENV, HOSTNAME };
+    const  { API_URL, VERSION, BUILD_DATE, VCS_REF, NODE_ENV } = process.env;
+    const env: AppEnv = { API_URL, VERSION, BUILD_DATE, VCS_REF, NODE_ENV, DIGEST_IMAGE: 'PROD000FFF' };
 
-     $('head').append(`<script id="__app_env">__app_env = ${JSON.stringify(env)};</script>`);
+     $('head').append(`<script>__app_env = ${JSON.stringify(env)};</script>`);
      return $.html();
 };
 
-const build = $ => {
-     $('head').append('<script id="__app_env" data-env="${JSON}">\
-        __app_env = JSON.parse(atob(document.querySelector("#__app_env").dataset.env))</script>');
-
-    return minfier.minify($.html(), {
-        removeComments: true,
-        removeAttributeQuotes: true,
-        collapseWhitespace: true,
-    });
-};
-
+const build = $ => minfier.minify(serve($), {
+    removeComments: true,
+    removeAttributeQuotes: true,
+    collapseWhitespace: true,
+});
 
 export default (targetOptions: TargetOptions, indexHtml: string) => {
-
     const $ = cheerio.load(indexHtml);
     const transformers = { serve, build };
-
     return transformers[targetOptions.target]($);
 };

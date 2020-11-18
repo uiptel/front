@@ -1,11 +1,11 @@
 export interface AppEnv {
-  BUILD_DATE: string,
-  DIGEST_IMAGE: string,
-  VCS_REF: string,
-  VERSION: string,
-  HOSTNAME: string,
-  API_URL: string,
-  NODE_ENV: string,
+  BUILD_DATE: string;
+  VCS_REF: string;
+  VERSION: string;
+  API_URL: string;
+  NODE_ENV: string;
+  HOSTNAME?: string;
+  DIGEST_IMAGE?: string;
 }
 
 declare global {

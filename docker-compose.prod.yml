@@ -4,18 +4,16 @@ services:
   front:
     container_name: ${CONTAINER_NAME}
     image: ${IMAGE}
-    environment: 
-      NODE_ENV: production
-      API_URL: https://uiptel.com/api
-      DIGEST_IMAGE: PROD_00000000FFFFFFFF
     build:
       context: .
       dockerfile: .docker/Dockerfile
       args:
+        NODE_ENV: production
         BUILD_DATE: ${BUILD_DATE}
         VCS_REF: ${VCS_REF}
         VERSION: ${APP_VERSION}
         WORKDIR: /usr/share/nginx/html
+        API_URL: https://uiptel.com/api
     ports:
       - "80:80"
 

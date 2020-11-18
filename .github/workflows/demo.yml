@@ -29,6 +29,8 @@ jobs:
             --build-arg BUILD_DATE=${BUILD_DATE}
             --build-arg VCS_REF=${VCS_REF}
             --build-arg VERSION=${VERSION}
+            --build-arg NODE_ENV=${NODE_ENV}
+            --build-arg API_URL=${API_URL}
             .
 
       - name: Login to Docker Hub

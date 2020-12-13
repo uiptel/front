@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -52,21 +51,21 @@ export function HttpLoaderFactory(http: HttpClient) {
     bootstrap: [RootComponent]
 })
 export class AppModule {
-    constructor(private translate: TranslateService, private readonly http: HttpClient) {
-        const { defaultLang } = environment;
+    constructor(
+        private readonly translate: TranslateService,
+        private readonly http: HttpClient,
+    ) {
+        const { defaultLang, apiUrl, version } = environment;
         const language = localStorage.getItem(USER_LANG_KEY) || window.navigator.language || defaultLang;
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-        const { BUILD_DATE: buildDate, VCS_REF: git, DIGEST_IMAGE: digestImage, VERSION: version,
-                API_URL: apiUrl, NODE_ENV: nodeEnv } = window.__app_env;
+        const { href } = window.location;
 
         translate.setDefaultLang(defaultLang);
         translate.use(language);
 
-        http.post<Stat>(`${apiUrl}/stat`, { language, timezone, digestImage, version })
+        http.post<Stat>(`${apiUrl}/stat`, { language, timezone, href, version })
             .subscribe(stat => debug('stat => ', stat));
 
-        info(`default language => ${defaultLang}; user language => ${language}; timezone => ${timezone}`);
+        info(`language => ${language}; timezone => ${timezone}; href => ${href}; version => ${version}`);
     }
 }
-

@@ -23,7 +23,7 @@ services:
       BUILD_DATE: ${BUILD_DATE}
       VCS_REF: ${VCS_REF}
       VERSION: ${APP_VERSION}
-      API_URL: https://uiptel.com/api
+      API_URL: 'http://localhost:3000'
     volumes:
       - /home/${USER_NAME}:/home/${USER_NAME}
       - ./:${APP_PATH}
